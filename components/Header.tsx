@@ -9,7 +9,7 @@ import UserDropdown from "./UserDropdown";
 const Header = () => {
   return (
     <header className="sticky top-0 header w-full">
-      <div className="flex justify-start items-center sm:justify-between w-full">
+      <div className="flex justify-between p-4 items-center sm:justify-between w-full">
         <Link href="/">
           <Image
             alt="signalist logo"
