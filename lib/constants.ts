@@ -337,3 +337,6 @@ export const WATCHLIST_TABLE_HEADER = [
   "Alert",
   "Action",
 ];
+
+export const TRADINGVIEW_URL =
+  "https://s3.tradingview.com/external-embedding/embed-widget-";
