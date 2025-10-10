@@ -5,14 +5,14 @@ import React from "react";
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <main className="auth-layout">
-      <section className="auth-left-section scroolbar-hide-default">
+      <section className="auth-left-section scroolbar-hide-default scrollbar-hide">
         <Link href="/">
           <Image
             src="/assets/icons/logo.svg"
             alt="Signalist logo"
             width={140}
             height={32}
-            className="h-8 w-auto"
+            className="h-auto w-auto"
           />
         </Link>
         <div className="pb-6 lg:pb-8 flex-1">{children}</div>
@@ -36,7 +36,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                   key={star}
                   width={20}
                   height={20}
-                  className="w-5 h-5"
+                  className="w-auto h-auto"
                 />
               ))}
             </div>

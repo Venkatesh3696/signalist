@@ -1,6 +1,7 @@
 "use client";
 
-import CountrySelectField from "@/components/forms/CountrySelectField";
+import { CountrySelectField } from "@/components/forms/CountrySelectField";
+import FooterLink from "@/components/forms/FooterLink";
 import InputField from "@/components/forms/InputField";
 import SelectField from "@/components/forms/SelectField";
 import { Button } from "@/components/ui/button";
@@ -16,7 +17,6 @@ const SignUp = () => {
   const {
     register,
     handleSubmit,
-    watch,
     control,
     formState: { errors, isSubmitting },
   } = useForm<SignUpFormData>({
@@ -24,7 +24,7 @@ const SignUp = () => {
       fullName: "",
       email: "",
       password: "",
-      country: "INDIA",
+      country: "IN",
       investmentGoals: "Growth",
       riskTolerance: "Medium",
       preferredIndustry: "Technology",
@@ -44,16 +44,18 @@ const SignUp = () => {
     <>
       <h1 className="form-title">Sign Up & Personalize</h1>
 
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="space-y-5 scrollbar-hide"
+      >
         {/* inputs  */}
-
         <InputField
           name="fullName"
           label="Full Name"
           placeholder="John Doe"
           error={errors.fullName}
           register={register}
-          validation={{ require: true, minLength: 2 }}
+          validation={{ required: true, minLength: 2 }}
         />
         <InputField
           name="email"
@@ -62,7 +64,7 @@ const SignUp = () => {
           error={errors.email}
           register={register}
           validation={{
-            require: "email is required",
+            required: "email is required",
             pattern: /^\w+@\w+\.\w+$/,
             message: "Email address is required",
           }}
@@ -74,12 +76,16 @@ const SignUp = () => {
           type="password"
           error={errors.password}
           register={register}
-          validation={{ require: true, minLength: 8 }}
+          validation={{ required: true, minLength: 8 }}
         />
-
         {/* country */}
-
-        <CountrySelectField />
+        <CountrySelectField
+          name="country"
+          label="Country"
+          control={control}
+          error={errors.country}
+          required
+        />
 
         <SelectField
           name="investmentGoals"
@@ -90,7 +96,6 @@ const SignUp = () => {
           error={errors.investmentGoals}
           required
         />
-
         <SelectField
           name="riskTolerance"
           label="Risk Tolerance"
@@ -100,7 +105,6 @@ const SignUp = () => {
           error={errors.riskTolerance}
           required
         />
-
         <SelectField
           name="preferredIndustry"
           label="Preferred Industry"
@@ -110,7 +114,6 @@ const SignUp = () => {
           error={errors.preferredIndustry}
           required
         />
-
         <Button
           type="submit"
           disabled={isSubmitting}
@@ -118,6 +121,11 @@ const SignUp = () => {
         >
           {isSubmitting ? "Creating Account" : "Start Your Investing Journey"}
         </Button>
+        <FooterLink
+          text="Already have an account?"
+          linkText="Sign in"
+          href="/sign-in"
+        />
       </form>
     </>
   );
