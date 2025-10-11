@@ -51,8 +51,6 @@ const CountrySelect = ({
     return String.fromCodePoint(...codePoints);
   };
 
-  console.log(getFlagEmoji("in"));
-
   return (
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
