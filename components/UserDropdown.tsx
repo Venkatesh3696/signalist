@@ -6,7 +6,7 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
+  // DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
@@ -15,17 +15,14 @@ import { Button } from "./ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { LogOut } from "lucide-react";
 import NavItems from "./NavItems";
+import { signOut } from "@/lib/actions/auth.actions";
 
-const UserDropdown = () => {
+const UserDropdown = ({ user }: { user: User }) => {
   const router = useRouter();
 
   const handleSignOut = async () => {
+    await signOut();
     router.push("/sign-in");
-  };
-
-  const user = {
-    name: "venkatesh",
-    email: "user1@gmail.com",
   };
 
   return (
@@ -58,7 +55,7 @@ const UserDropdown = () => {
           </Avatar>
           <div className="flex flex-col items-start">
             <span className="text-base font-medium text-gray-400">
-              {user?.name}
+              {user?.name[0]}
             </span>
             <span className="text-base font-medium text-gray-400">
               {user?.email}
@@ -74,9 +71,6 @@ const UserDropdown = () => {
           Logout
         </DropdownMenuItem>
         <DropdownMenuSeparator className="hidden sm:block gray-600" />
-        <nav>
-          <NavItems />
-        </nav>
       </DropdownMenuContent>
     </DropdownMenu>
   );
