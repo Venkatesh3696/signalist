@@ -14,7 +14,6 @@ import { useRouter } from "next/navigation";
 import { Button } from "./ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { LogOut } from "lucide-react";
-import NavItems from "./NavItems";
 import { signOut } from "@/lib/actions/auth.actions";
 
 const UserDropdown = ({ user }: { user: User }) => {
@@ -55,7 +54,7 @@ const UserDropdown = ({ user }: { user: User }) => {
           </Avatar>
           <div className="flex flex-col items-start">
             <span className="text-base font-medium text-gray-400">
-              {user?.name[0]}
+              {user?.name}
             </span>
             <span className="text-base font-medium text-gray-400">
               {user?.email}
