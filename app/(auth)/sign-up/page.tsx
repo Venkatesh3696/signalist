@@ -5,7 +5,7 @@ import FooterLink from "@/components/forms/FooterLink";
 import InputField from "@/components/forms/InputField";
 import SelectField from "@/components/forms/SelectField";
 import { Button } from "@/components/ui/button";
-import { signInWithEmail, signUpWithEmail } from "@/lib/actions/auth.actions";
+import { signUpWithEmail } from "@/lib/actions/auth.actions";
 import {
   INVESTMENT_GOALS,
   PREFERRED_INDUSTRIES,
@@ -38,7 +38,7 @@ const SignUp = () => {
 
   const onSubmit = async (data: SignUpFormData) => {
     try {
-      const result = await signInWithEmail(data);
+      const result = await signUpWithEmail(data);
 
       if (result.success) router.push("/");
     } catch (error) {
