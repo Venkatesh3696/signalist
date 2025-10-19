@@ -40,7 +40,7 @@ const Home = () => {
             height={600}
           />
         </div>
-        <div className="h-full md:col-span-1 xl:col-span-1">
+        <div className="h-full md:col-span-1 xl:col-span-2">
           <TradingviewWidget
             scriptUrl={`${TRADINGVIEW_URL}market-quotes.js`}
             config={MARKET_DATA_WIDGET_CONFIG}
