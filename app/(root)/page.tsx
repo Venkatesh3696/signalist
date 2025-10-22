@@ -17,7 +17,7 @@ const Home = () => {
             title="Markets Overview"
             scriptUrl={`${TRADINGVIEW_URL}market-overview.js`}
             config={MARKET_OVERVIEW_WIDGET_CONFIG}
-            className="custon-chart"
+            className="custom-chart"
             height={600}
           />
         </div>
@@ -26,7 +26,7 @@ const Home = () => {
             title="Stock Heatmap"
             scriptUrl={`${TRADINGVIEW_URL}stock-heatmap.js`}
             config={HEATMAP_WIDGET_CONFIG}
-            className="custon-chart"
+            className="custom-chart"
             height={600}
           />
         </div>
@@ -36,7 +36,7 @@ const Home = () => {
           <TradingviewWidget
             scriptUrl={`${TRADINGVIEW_URL}timeline.js`}
             config={TOP_STORIES_WIDGET_CONFIG}
-            className="custon-chart"
+            className="custom-chart"
             height={600}
           />
         </div>
@@ -44,7 +44,7 @@ const Home = () => {
           <TradingviewWidget
             scriptUrl={`${TRADINGVIEW_URL}market-quotes.js`}
             config={MARKET_DATA_WIDGET_CONFIG}
-            className="custon-chart"
+            className="custom-chart"
             height={600}
           />
         </div>
