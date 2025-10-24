@@ -1,8 +1,9 @@
 import TradingviewWidget from "@/components/TradingviewWidget";
+import WatchlistButton from "@/components/WatchlistButton";
 import {
   BASELINE_WIDGET_CONFIG,
   CANDLE_CHART_WIDGET_CONFIG,
-  // COMPANY_FINANCIALS_WIDGET_CONFIG,
+  COMPANY_FINANCIALS_WIDGET_CONFIG,
   COMPANY_PROFILE_WIDGET_CONFIG,
   SYMBOL_INFO_WIDGET_CONFIG,
   TECHNICAL_ANALYSIS_WIDGET_CONFIG,
@@ -37,9 +38,13 @@ export default async function StockDetails({ params }: StockDetailsPageProps) {
           />
         </div>
         <div className="flex flex-col gap-6">
-          {/* <div className="flex items-center justify-between">
-            <WatchlistButto symbol={symbol.toUpperCase()} company={symbol.toUpperCase()} isInWatchlist={false} />
-          </div> */}
+          <div className="flex items-center justify-between">
+            <WatchlistButton
+              symbol={symbol.toUpperCase()}
+              company={symbol.toUpperCase()}
+              isInWatchlist={false}
+            />
+          </div>
           <TradingviewWidget
             scriptUrl={`${TRADINGVIEW_URL}technical-analysis.js`}
             config={TECHNICAL_ANALYSIS_WIDGET_CONFIG(symbol)}
@@ -47,16 +52,16 @@ export default async function StockDetails({ params }: StockDetailsPageProps) {
           />
 
           <TradingviewWidget
-            scriptUrl={`${TRADINGVIEW_URL}company-profile.js`}
+            scriptUrl={`${TRADINGVIEW_URL}symbol-profile.js`}
             config={COMPANY_PROFILE_WIDGET_CONFIG(symbol)}
             height={440}
           />
 
-          {/* <TradingviewWidget
+          <TradingviewWidget
             scriptUrl={`${TRADINGVIEW_URL}financials.js`}
             config={COMPANY_FINANCIALS_WIDGET_CONFIG(symbol)}
             height={464}
-          /> */}
+          />
         </div>
       </section>
     </div>
