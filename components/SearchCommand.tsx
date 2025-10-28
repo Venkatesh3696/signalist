@@ -16,7 +16,7 @@ import { useDebounce } from "@/hooks/useDebounce";
 export default function SearchCommand({
   renderAs = "button",
   label = "Add stock",
-  initialStocks,
+  initialStocks = [],
 }: SearchCommandProps) {
   const [open, setOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");

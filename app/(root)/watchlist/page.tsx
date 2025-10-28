@@ -1,8 +1,11 @@
+import SearchCommand from "@/components/SearchCommand";
+import { searchStocks } from "@/lib/actions/finnhub.actions";
 import { Star } from "lucide-react";
 import React from "react";
 
 const Watchlist = async () => {
   const watchlist = [];
+  const initialStocks = await searchStocks();
   if (watchlist.length === 0) {
     return (
       <section className="flex watchlist-empty-container">
@@ -14,7 +17,7 @@ const Watchlist = async () => {
             the star icon to add them.
           </p>
         </div>
-        {/* <SearchCommand initialStocks={initialStocks} /> */}
+        <SearchCommand initialStocks={initialStocks} />
       </section>
     );
 
@@ -23,7 +26,7 @@ const Watchlist = async () => {
         <div className="flex flex-col gap-6">
           <div className="flex items-center justify-between">
             <h2 className="watchlist-title">Watchlist</h2>
-            {/* <SearchCommand initialStocks={initialStocks} /> */}
+            <SearchCommand initialStocks={initialStocks} />
           </div>
           {/* WatchlistTable */}
         </div>
